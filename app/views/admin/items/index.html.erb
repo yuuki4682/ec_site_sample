@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <%= link_to 'Add New Item', new_admin_item_path, class:"btn btn-success" %>
+      <table class="table">
+        <% @items.each do |item| %>
+          <tr>
+            <%= item.name %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

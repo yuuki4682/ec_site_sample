@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    resources :items, only: [:show, :index]
   end
   
   namespace :admin do
     root to: 'homes#top'
+    resources :items
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -10,3 +10,19 @@ Admin.create!(
   email: 'admin@admin',
   password: '111111'
   )
+  
+Customer.create!(
+  name: '田中太郎',
+  email: 'test@test',
+  password: '111111'
+  )
+Customer.create!(
+  name: '佐藤次郎',
+  email: 'test2@test',
+  password: '111111'
+  )
+Customer.create!(
+  name: '鈴木三郎',
+  email: 'test3@test',
+  password: '111111'
+  )
