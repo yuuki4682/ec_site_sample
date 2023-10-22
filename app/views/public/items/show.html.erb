@@ -1,2 +1,14 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div calss="col-6">
+      <h3><%= @item.name %></h3>
+      <%= image_tag @item.image, width:"500px" %>
+    </div>
+    <div class="col-4 offset-1">
+      <div class="my-5">
+        <%= simple_format(@item.description) %>
+      </div>
+      <%= link_to 'Add to Cart', cart_items_path, method: :psot, class:"btn btn-success" %>
+    </div>
+  </div>
+</div>
