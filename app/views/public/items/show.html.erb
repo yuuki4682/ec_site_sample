@@ -8,7 +8,22 @@
       <div class="my-5">
         <%= simple_format(@item.description) %>
       </div>
-      <%= link_to 'Add to Cart', cart_items_path, method: :psot, class:"btn btn-success" %>
+      <% if customer_signed_in? %>
+        <% if current_customer.cart_items.find_by(item_id: @item.id).present? %>
+          <%= link_to 'Move To My Cart', cart_items_path, class:"btn btn-success" %>
+        <% else %>
+          <%= form_with model: @cart_item do |f| %>
+            <div class="form-group">
+              <%= f.select(:amount, *[1..10], class:"form-control") %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.submit 'Add To My Cart', class:"btn btn-info" %>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="btn btn-seconary">Add To My Cart</div>
+        <%= link_to 'sign in>', new_session_customer_path %>
+      <% end %>
     </div>
   </div>
 </div>
