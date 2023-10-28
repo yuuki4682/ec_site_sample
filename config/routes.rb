@@ -13,8 +13,11 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :items, only: [:show, :index]
-    resource :cart_items, only: [:index, :create, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: :cart_items_destroy_all
+    resources :orders, only: [:new, :create, :index, :show]
+    post 'orders/confirm' => 'orders#confirm', as: :confirm_orders
+    get 'orders/thanks' => 'orders#tanks', as: :thanks_orders
   end
   
   namespace :admin do

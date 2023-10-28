@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <h3>Order Option</h3>
+      <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %> 
+        <h4>payment_method</h4>
+        <div class="ml-4">
+          <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+          <%= f.label :payment_method_credit_card, 'credit_card' %></br>
+          
+          <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+          <%= f.label :payment_method_transfer, 'transfer' %>
+        </div>
+        <h4>Address</h4>
+        <div class="ml-4 form-group">
+          <%= f.label :postal_code %>
+          <%= f.text_field :postal_code, class:"form-control" %>
+          <%= f.label :shipping_address %>
+          <%= f.text_field :shipping_address, class:"form-control" %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class:"form-control" %>
+        </div>
+        <%= f.submit 'Create Order', class:"btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>
+</div>
