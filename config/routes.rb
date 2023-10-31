@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: :cart_items_destroy_all
     resources :orders, only: [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm', as: :confirm_orders
-    get 'orders/thanks' => 'orders#tanks', as: :thanks_orders
+    get 'orders/thanks' => 'orders#thanks', as: :thanks_orders
   end
   
   namespace :admin do
